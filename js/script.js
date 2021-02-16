@@ -23,33 +23,38 @@ const createScene = () =>
     var skybox = BABYLON.Mesh.CreateBox('skybox', 1000.0, scene);
 	var skyboxMaterial = new BABYLON.StandardMaterial('skybox', scene);
 
-	scene.clearColor = new BABYLON.Color3(0.5, 0.8, 0.5);
-	scene.ambientColor = new BABYLON.Color3(0.3, 0.3, 0.3);
+    //Scene Options
+	scene.clearColor = new BABYLON.Color3.Black();
+	scene.ambientColor = new BABYLON.Color3.Black();
+    scene.activeCamera = camera;
+	scene.activeCamera.attachControl(canvas);
 
-	
-	light.diffuse = new BABYLON.Color3(1, 1, 1);
+    //Light Options
+    light.diffuse = new BABYLON.Color3(1, 1, 1);
 	light.specular = new BABYLON.Color3(1, 1, 1);
 	light.groundColor = new BABYLON.Color3(0, 0, 0);
 
-	
+    //Skybox Options
+    skybox.infiniteDistance = true;
+	skyboxMaterial.disableLighting = true;
 	skyboxMaterial.backFaceCulling = false;
 	skybox.material = skyboxMaterial;
 	
-	skybox.infiniteDistance = true;
-
-	skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('http://www.babylonjs-playground.com/textures/skybox', scene);
+    //Skybox Texture
+	skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("https://raw.githubusercontent.com/PigeonRubbishStudios/SR-71-Kiosk/main/images/textures/night3/night", scene);
 	skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
-	scene.activeCamera = camera;
-	scene.activeCamera.attachControl(canvas);
-
+    //http://wwwtyro.github.io/space-3d/#animationSpeed=0&fov=90&nebulae=true&pointStars=false&resolution=2048&seed=4g9a1vv0d3e0&stars=false&sun=true
+    //Night1 - 5i240qjwjc40
+    //Night2 - 2r9jdv6xc1q0
+    //Night3 - 3fonam0qemu0
+    //Night4 - 4g9a1vv0d3e0
     
-    BABYLON.SceneLoader.ImportMeshAsync("", "./models/sr-71/", "sr-71.gltf");
+    //Import Plane
+    BABYLON.SceneLoader.ImportMesh("", "./models/sr-71/", "sr-71.gltf");
 
     return scene;
 }
-
-
 
 initFunction = async function() 
 {
@@ -74,16 +79,20 @@ initFunction = async function()
     scene = createScene();
 };
 
-initFunction().then(() => {
+initFunction().then(() => 
+{
     sceneToRender = scene
-    engine.runRenderLoop(function() {
-        if (sceneToRender && sceneToRender.activeCamera) {
+    engine.runRenderLoop(function() 
+    {
+        if (sceneToRender && sceneToRender.activeCamera) 
+        {
             sceneToRender.render();
         }
     });
 });
 
 // Resize
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function() 
+{
     engine.resize();
 });
