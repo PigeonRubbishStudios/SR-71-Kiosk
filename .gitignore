@@ -58,6 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+*.meta
+
 images/textures/night1/._night_nx.jpg
 images/textures/night1/._night_ny.jpg
 images/textures/night1/._night_nz.jpg
