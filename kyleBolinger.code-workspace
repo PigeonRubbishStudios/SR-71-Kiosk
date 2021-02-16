@@ -1,0 +1,28 @@
+{
+	"folders": 
+	[
+		{
+			"path": "."
+		}
+	],
+	"settings": 
+	{
+		// "liveSassCompile.settings.generateMap": false,
+		// "liveSassCompile.settings.formats": 
+		// [
+		// 	{
+		// 		"format": "expanded",
+		// 		"extensionName": ".css",
+		// 		"savePath": "/css"
+		// 	}
+		// ],
+		"liveServer.settings.multiRootWorkspaceName": "sr-71_kiosk",
+		"explorer.compactFolders": false,
+		"javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+		"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+		"editor.wordWrap": "bounded",
+		"editor.wordWrapColumn": 200
+	},
+
+	"editor.fontSize": 16,
+}
