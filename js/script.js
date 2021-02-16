@@ -28,6 +28,7 @@ const createScene = () =>
 	scene.ambientColor = new BABYLON.Color3.Black();
     scene.activeCamera = camera;
 	scene.activeCamera.attachControl(canvas);
+    camera.wheelPrecision = 200; //Mouse wheel speed
 
     //Light Options
     light.diffuse = new BABYLON.Color3(1, 1, 1);
